@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Content
+@{
+    ViewData["Title"] = "AddContent";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">İçerik Ekleme Sayfası</h3>
+</div>
+<br/>
+@using (Html.BeginForm("AddContent", "Content", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> İçerik Ekleme Paneli </p>
+                <form class="forms-sample">
+                    @*<div class="form-group">
+                                        <label>ID</label>
+                                        @Html.HiddenFor(x => x.ReviewID, new { @class = "form-control" })
+                        </div>*@
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Fotoğraf Url </label>
+                        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    </div>
+                  
+                    <button type="submit" class="btn btn-outline-primary mr-2">Kaydet</button>
+                    <button class="btn btn-outline-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+

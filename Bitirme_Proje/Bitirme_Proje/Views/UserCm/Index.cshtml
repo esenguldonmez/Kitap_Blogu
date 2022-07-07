@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="row ">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yazar Listesi</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Ad Soyad </th>
+                                @*<th> Meslek </th>*@
+                                <th> Yorum Başlığı </th>
+                                <th> Mail </th>
+                                <th> Yorumunuz </th>
+                               
+                                <th> Sil </th>
+                                <th> Detaylar </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        <img src="@item.ImageUrl" alt="image" />
+                                    </td>
+                                    <td> @item.Name </td>
+                                    @*<td> @item.Company</td>*@
+                                    <td> @item.CommentHead</td>
+                                    <td> @item.Mail</td>
+                                    <td> @item.Content</td>
+
+                                    <td> <a href="/UserCm/DeleteUserCm/@item.MessageID" class="btn btn-outline-danger">Sil</a> </td>
+                                    <td> <a href="/UserCm/EditUserCm/@item.MessageID" class="btn btn-outline-info">Detaylar</a> </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @*<a href="/UserCm/AddUserCm/" class="btn btn-outline-info">Yeni Yorum Ekle</a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

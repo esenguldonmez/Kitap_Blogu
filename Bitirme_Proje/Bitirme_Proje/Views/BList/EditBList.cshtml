@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.BList
+@{
+    ViewData["Title"] = "EditBList";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">İnceleme Düzenleme Sayfası</h3>
+</div>
+@using (Html.BeginForm("EditBList", "BList", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> Kitap Düzenleme Paneli </p>
+                <form class="forms-sample">
+                    <div class="form-group">
+                            <label>ID</label>
+                            @Html.TextBoxFor(x => x.BListID, new { @class = "form-control" })
+                        </div>
+                    <div class="form-group">
+                        <label>Kitap Adı</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Sayfa Sayısı</label>
+                        @Html.TextBoxFor(x => x.Sayfa, new { @class = "form-control" })
+                    </div>
+                    @*<div class="form-group">
+                        <label>Okunan Sayfa</label>
+                        @Html.TextBoxFor(x => x.Value, new { @class = "form-control" })
+                    </div>*@
+                    <div class="form-group">
+                        <label>Kaçıncı Sayfadasınız?</label>
+                        @Html.TextBoxFor(x => x.OkunanSayfaOranı, new { @class = "form-control" })
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

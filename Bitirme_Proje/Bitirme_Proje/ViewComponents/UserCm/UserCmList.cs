@@ -1,0 +1,22 @@
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Bitirme_Proje.ViewComponents.UserCm
+{
+    public class UserCmList:ViewComponent
+    {
+        //UserCmManager userCmManager = new UserCmManager(new EfUserCmDal());
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
+    
+        public IViewComponentResult Invoke()
+        {
+            var values = messageManager.TGetList();
+            return View(values);
+        }
+    }
+}

@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+
+    <div class="row ">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Okunanlar Listesi</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th> Ana Görsel</th>
+                                    <th> Kitap Adı </th>
+
+                                    <th> Sayfa Sayısı </th>
+                                    <th>Tamamlanma Oranı</th>
+                                    <th> Konu </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                <tr>
+                                    <td>@item.PortfolioID</td>
+                                    <td><img src="@item.ImageUrl" /></td>
+                                    <td>@item.Name</td>
+
+                                    <td>@item.Sayfa</td>
+                                    <td>%@item.Value</td>
+                                    <td>@item.Konu</td>
+                                    <td>
+                                        <a href="/Portfolio/EditPortfolio/@item.PortfolioID/">
+                                            <div class="badge badge-outline-success">Detayları Gör</div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

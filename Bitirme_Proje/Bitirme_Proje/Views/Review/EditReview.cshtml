@@ -1,0 +1,45 @@
+﻿@model EntityLayer.Concrete.Review
+@{
+    ViewData["Title"] = "EditReview";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">İnceleme Düzenleme Sayfası</h3>
+</div>
+@using (Html.BeginForm("EditReview", "Review", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">İnceleme Düzenleme Paneli </p>
+                <form class="forms-sample">
+                    <div class="form-group">
+                       @*<label>ID</label>*@
+                       @Html.HiddenFor(x => x.ReviewID, new { @class = "form-control" })
+                        </div>
+                    <div class="form-group">
+                        <label>İnceleme</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Tarih</label>
+                        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+
+                    </div>
+                    <div class="form-group">
+                        <label>Fotoğraf Url</label>
+                        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        @Html.TextAreaFor(x => x.Description,10,3, new { @class = "form-control" })  
+                    </div>   
+                    <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
